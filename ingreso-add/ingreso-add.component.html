@@ -1,0 +1,123 @@
+<div class="card border-primary mb-12">
+  <div class="card-header">Agregar ingreso</div>
+  <div class="card-body text-primary">
+    <div class="card-text">
+      <form #ingresoForm="ngForm" (ngSubmit)="onSubmit(ingresoForm)">
+        <div class="form-group">
+          <input type="text" class="form-control" name="key" #key="ngModel" [(ngModel)]="ingreso.key" placeholder="key">
+        </div>
+        <input type="checkbox" id="cbx" class="cbx" style="display: none;" name="realizado" #realizado="ngModel" [(ngModel)]="ingreso.realizado"
+          aria-label="realizado">
+        <label for="cbx" class="check">
+          <svg width="18px" height="18px" viewBox="0 0 18 18">
+            <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+            <polyline points="1 9 7 14 15 4"></polyline>
+          </svg>
+        </label>
+        <div class="form-group">
+          <input type="date" class="form-control" name="fecha" #fecha="ngModel" [ngModel]="ingreso.fecha | date:'yyyy-MM-dd'" (ngModelChange)="ingreso.fecha = $event">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="descripcion" #descripcion="ngModel" [(ngModel)]="ingreso.descripcion" placeholder="descripci&oacute;n">
+        </div>
+        <div class="form-group">
+          <select name="categorias" class="custom-select mr-sm-2" name="categoria" #categoria="ngModel" [(ngModel)]="ingreso.categoria">
+            <option selected>categoria</option>
+            <option value="1">opci&oacute;n 1</option>
+            <option value="2">opci&oacute;n 2</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select name="cuentas" class="custom-select mr-sm-2" name="cuenta" #cuenta="ngModel" [(ngModel)]="ingreso.cuenta">
+            <option selected>cuenta</option>
+            <option value="1">opci&oacute;n 1</option>
+            <option value="2">opci&oacute;n 2</option>
+          </select>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              <i class="fa fa-{{var_money}}"></i>
+            </span>
+          </div>
+          <input type="number" class="form-control" name="valor" #valor="ngModel" [(ngModel)]="ingreso.valor" placeholder="0.00" min="0"
+            aria-label="Valor" step='0.01' value='0.00'>
+        </div>
+        <label>M&aacute;s informaci&oacute;n</label>
+        <div class="form-group">
+          <input type="text" class="form-control" name="notas" #notas="ngModel" [(ngModel)]="ingreso.notas" placeholder="notas adicionales"
+            aria-label="notas">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div>
+              <input type="checkbox" id="cbx_1" class="cbx" style="display: none;" name="condicionfijo" [(ngModel)]="condicionfijo" (click)="alternativa()"
+                aria-label="realizado">
+              <label for="cbx_1" class="check">
+                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                  <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                  <polyline points="1 9 7 14 15 4"></polyline>
+                </svg>
+              </label>
+            </div>
+          </div>
+          <label class="lbl-margin" aria-label="Ingreso fijo">Ingreso fijo</label>
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <div>
+              <input type="checkbox" id="cbx_2" class="cbx" style="display: none;" name="repetir" [(ngModel)]="condicionrepetir" (click)="alternativa()"
+                aria-label="realizado">
+              <label for="cbx_2" class="check">
+                <svg width="18px" height="18px" viewBox="0 0 18 18">
+                  <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                  <polyline points="1 9 7 14 15 4"></polyline>
+                </svg>
+              </label>
+            </div>
+          </div>
+          <label class="lbl-margin" aria-label="Ingreso fijo">Repetir</label>
+          <div class="col-auto my-1">
+            <input type="number" name="numerorepeticiones" min="0" aria-label="Número de repeticiones" step='1' value='0' [disabled]="!condicionrepetir">
+          </div>
+          <div class="col-auto my-1">
+            <select name="periodos" class="custom-select mr-sm-2" name="periodo" [disabled]="!condicionrepetir">
+              <option selected>Seleccione</option>
+              <option value="1">D&iacute;as</option>
+              <option value="2">Semanas</option>
+              <option value="3">Meses</option>
+              <option value="4">A&ntilde;os</option>
+            </select>
+          </div>
+        </div>
+        <label for="inp" class="inp">
+            <input type="text" id="inp" placeholder="&nbsp;">
+            <span class="label">Label</span>
+            <span class="border"></span>
+          </label>
+      </form>
+    </div>
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-outline-secondary btn-sm">Guardar y crear nueva</button>
+      <button class="btn btn-primary btn-sm ml-2">Guardar</button>
+    </div>
+  </div>
+<!--Placeholder -->
+  <form>
+      <input required="" type='text'>
+      <label alt='Nombre' placeholder='Bienvenido'></label>
+    </form>
+
+</div>
+
+
+<!--
+  $key: number;
+    realizado: boolean;
+    fecha: Date;
+    descripcion: string;
+    categoria: Categoria;
+    cuenta: Cuenta;
+    valor: number;
+    notas?: string;
+-->
