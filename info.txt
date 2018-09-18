@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookmarks>
+   <site url="https://devstudio.redhat.com/updates/8.0/" selected="true" name="JBoss Developer Studio 8.0 Updates"/>
+   <site url="http://download.jboss.org/jbosstools/photon/development/updates/" selected="true" name="JBoss Tools - Core + Central Update Site"/>
+   <site url="http://download.eclipse.org/releases/luna" selected="true" name="Luna"/>
+   <site url="http://download.eclipse.org/m2e-wtp/releases/luna/1.1" selected="true" name="m2e-wtp Luna Release repository"/>
+   <site url="http://pizzafactory.github.io/mRDT/p2repo/8.5/" selected="true" name="mRDT for PizzaFactory Update Site"/>
+   <site url="http://download.eclipse.org/mylyn/releases/luna" selected="true" name="Mylyn for Eclipse Luna"/>
+   <site url="http://download.eclipse.org/technology/subversive/4.0/update-site/" selected="true" name="Subversive Site"/>
+   <site url="http://download.eclipse.org/eclipse/updates/4.4" selected="true" name="The Eclipse Project Updates"/>
+   <site url="http://download.eclipse.org/webtools/repository/luna" selected="true" name="The Eclipse Web Tools Platform (WTP) software repository"/>
+   <site url="http://community.polarion.com/projects/subversive/download/eclipse/6.0/update-site/" selected="true" name="Update Site"/>
+   <site url="http://download.eclipse.org/tools/gef/updates/releases" selected="true" name=""/>
+   <site url="http://update.zeroturnaround.com/update-site/" selected="true" name=""/>
+</bookmarks>
